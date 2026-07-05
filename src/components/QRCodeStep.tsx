@@ -88,13 +88,61 @@ export function QRCodeStep({ data, onPrev }: StepProps) {
 
   const downloadQRCode = async () => {
     const canvas = await generateCanvas();
-    if (canvas) {
-      const pngFile = canvas.toDataURL("image/png");
+    if (!canvas) return;
+
+    const pngFile = canvas.toDataURL("image/png");
+    const typeLabel = templateType === "square" ? "StikerMeja" : "PosterStand";
+    const filename = `QR-${typeLabel}-${(data.businessName || "Toko").replace(/\s+/g, '-')}.png`;
+
+    // Detect if user is on an iOS device (iPhone/iPad/iPod)
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    if (isIOS) {
+      // For iOS: Try to use Web Share API if available, otherwise open in new tab
+      try {
+        // Convert base64 to Blob for sharing
+        const res = await fetch(pngFile);
+        const blob = await res.blob();
+        const file = new File([blob], filename, { type: "image/png" });
+
+        if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+          await navigator.share({
+            files: [file],
+            title: 'Desain QR Code Ulasan',
+            text: 'Ini adalah desain QR Code Google Maps Anda.',
+          });
+        } else {
+          // Fallback: Open in new tab so user can long-press to save
+          const newWindow = window.open();
+          if (newWindow) {
+            newWindow.document.write(`
+              <html>
+                <body style="margin:0;display:flex;justify-content:center;align-items:center;background:#0F0F0F;min-height:100vh;flex-direction:column;color:white;font-family:sans-serif;">
+                  <p style="margin-bottom:20px;padding:10px 20px;background:#E0481D;border-radius:20px;font-weight:bold;">Tekan tahan gambar di bawah lalu pilih "Simpan Gambar"</p>
+                  <img src="${pngFile}" style="max-width:90%;max-height:80vh;object-fit:contain;border:4px solid white;" alt="QR Code" />
+                </body>
+              </html>
+            `);
+          } else {
+            alert("Harap izinkan popup (pop-up blocker) untuk mengunduh gambar ini.");
+          }
+        }
+      } catch (err) {
+        console.error("Error sharing on iOS", err);
+        // Direct fallback if share fails/is cancelled
+        const newWindow = window.open();
+        if (newWindow) {
+          newWindow.document.write(`<img src="${pngFile}" style="max-width:100%;" />`);
+        }
+      }
+    } else {
+      // For Android, PC, Mac: Standard download behavior
       const downloadLink = document.createElement("a");
-      const typeLabel = templateType === "square" ? "StikerMeja" : "PosterStand";
-      downloadLink.download = `QR-${typeLabel}-${(data.businessName || "Toko").replace(/\s+/g, '-')}.png`;
+      downloadLink.download = filename;
       downloadLink.href = pngFile;
+      document.body.appendChild(downloadLink);
       downloadLink.click();
+      document.body.removeChild(downloadLink);
     }
   };
 
@@ -208,8 +256,8 @@ export function QRCodeStep({ data, onPrev }: StepProps) {
               />
             ) : (
               <div className="flex flex-col items-center gap-3">
-                <div className="w-12 h-12 border-4 border-[var(--color-ink)] border-t-[var(--color-accent)] rounded-full animate-spin"></div>
-                <p className="font-mono font-bold text-sm uppercase text-[var(--color-ink)]">Memproses Cetakan...</p>
+                 <div className="w-12 h-12 border-4 border-[var(--color-ink)] border-t-[var(--color-accent)] rounded-full animate-spin"></div>
+                 <p className="font-mono font-bold text-sm uppercase text-[var(--color-ink)]">Memproses Cetakan...</p>
               </div>
             )}
           </div>
