@@ -32,20 +32,20 @@ export function WelcomeStep({ onNext }: StepProps) {
   return (
     <div className="w-full max-w-4xl py-6 md:py-10">
       {/* HERO SECTION */}
-      <div className="border-2 border-[var(--color-ink)] bg-white shadow-hard-lg mb-12 p-6 md:p-12 relative overflow-hidden">
+      <div className="border-2 border-[var(--color-ink)] bg-white shadow-hard-lg mb-12 p-6 md:p-12 relative">
         {/* Background Accent Grid */}
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA0MCAwIEwgMCAwIDAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0Y4RjlGNiIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-50 z-0"></div>
 
-        <div className="relative z-10 grid md:grid-cols-[1fr_auto] gap-8 md:gap-12 items-center">
+        <div className="relative z-10 grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-center">
 
           <div className="space-y-6 text-left">
             <div className="inline-flex items-center gap-2 bg-[var(--color-accent)] text-white px-3 py-1 font-mono font-bold text-xs uppercase border-2 border-[var(--color-ink)] shadow-[2px_2px_0px_0px_var(--color-ink)]">
               <Zap className="w-4 h-4" /> Generator QR Siap Cetak 100% Gratis
             </div>
 
-            <h1 className="text-3xl md:text-5xl font-display font-extrabold text-[var(--color-ink)] leading-[1.1] uppercase tracking-tight">
-              Cetak QR Code <br />
-              <span className="text-white bg-[var(--color-ink)] px-2 leading-snug">Ulasan Maps</span>
+            <h1 className="text-4xl md:text-5xl lg:text-5xl font-display font-extrabold text-[var(--color-ink)] leading-[1.15] uppercase tracking-tight">
+              <span className="whitespace-nowrap">Cetak QR Code</span><br/>
+              <span className="text-white bg-[var(--color-ink)] px-2 leading-snug inline-block mt-1">Ulasan Maps</span>
             </h1>
 
             <p className="text-sm md:text-base text-gray-800 font-medium max-w-xl leading-relaxed border-l-4 border-[var(--color-accent)] pl-4">
@@ -54,7 +54,7 @@ export function WelcomeStep({ onNext }: StepProps) {
 
             <button
               onClick={() => onNext()}
-              className="mt-4 inline-flex items-center gap-3 bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white font-display font-bold text-xl px-8 py-4 border-2 border-[var(--color-ink)] shadow-hard hover:shadow-hard-hover transition-all cursor-pointer group"
+              className="mt-4 inline-flex items-center gap-3 bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white font-display font-bold text-lg md:text-xl px-6 md:px-8 py-4 border-2 border-[var(--color-ink)] shadow-hard hover:shadow-hard-hover transition-all cursor-pointer group w-full sm:w-auto justify-center relative z-20"
             >
               BUAT DESAIN SEKARANG
               <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
@@ -62,7 +62,7 @@ export function WelcomeStep({ onNext }: StepProps) {
           </div>
 
           {/* MOCKUP SHOWCASE - AUTO SWAP CARDS */}
-          <div className="flex relative justify-center items-center h-full min-h-[380px] md:min-h-[460px] w-full md:w-[380px] mt-6 md:mt-0">
+          <div className="flex relative justify-center items-center w-full min-h-[360px] md:min-h-[460px] lg:w-[400px] mt-6 lg:mt-0 max-w-full pt-8 pb-4">
 
             {/* Stiker Gerobak Mockup */}
             <motion.div
@@ -75,7 +75,7 @@ export function WelcomeStep({ onNext }: StepProps) {
                 opacity: activeMockup === "stiker" ? 1 : 0.8,
               }}
               transition={{ type: "spring", stiffness: 180, damping: 20 }}
-              className="absolute w-56 md:w-72 aspect-[3/4] bg-white border-2 border-[var(--color-ink)] shadow-hard-lg overflow-hidden"
+              className="absolute w-[200px] sm:w-56 md:w-72 aspect-[3/4] bg-white border-2 border-[var(--color-ink)] shadow-hard-lg overflow-hidden"
             >
               <img src="/stiker-gerobak.webp" alt="Stiker di Kaca Toko" className="w-full h-full object-cover" />
               <div className="absolute bottom-0 inset-x-0 bg-[var(--color-ink)] text-white font-mono text-[10px] md:text-xs py-2 px-2 font-bold text-center border-t-2 border-[var(--color-ink)] uppercase">
@@ -94,7 +94,7 @@ export function WelcomeStep({ onNext }: StepProps) {
                 opacity: activeMockup === "akrilik" ? 1 : 0.8,
               }}
               transition={{ type: "spring", stiffness: 180, damping: 20 }}
-              className="absolute w-56 md:w-72 aspect-[3/4] bg-white border-2 border-[var(--color-ink)] shadow-hard-lg overflow-hidden"
+              className="absolute w-[200px] sm:w-56 md:w-72 aspect-[3/4] bg-white border-2 border-[var(--color-ink)] shadow-hard-lg overflow-hidden"
             >
               <img src="/akrilik-kasir.webp" alt="Stand Akrilik Meja Kasir" className="w-full h-full object-cover" />
               <div className="absolute bottom-0 inset-x-0 bg-[var(--color-accent)] text-white font-mono text-[10px] md:text-xs py-2 px-2 font-bold text-center border-t-2 border-[var(--color-ink)] uppercase">
@@ -102,10 +102,20 @@ export function WelcomeStep({ onNext }: StepProps) {
               </div>
             </motion.div>
 
-            {/* Badge Siap Cetak (Always on top) */}
-            <div className="absolute top-2 left-0 md:-left-4 bg-yellow-300 text-[var(--color-ink)] font-mono font-extrabold text-sm md:text-base px-3 py-1.5 border-2 border-[var(--color-ink)] -rotate-12 z-30 shadow-[2px_2px_0px_0px_var(--color-ink)] animate-bounce pointer-events-none">
+            {/* Badge Siap Cetak (Attached closer to the visual cards) */}
+            <motion.div
+              animate={{
+                y: [0, -10, 0]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="absolute top-8 sm:top-2 left-[10%] sm:left-[20%] lg:-left-6 bg-yellow-300 text-[var(--color-ink)] font-mono font-extrabold text-xs sm:text-sm md:text-base px-2 sm:px-3 py-1.5 border-2 border-[var(--color-ink)] -rotate-12 z-30 shadow-[2px_2px_0px_0px_var(--color-ink)] pointer-events-none"
+            >
               ⭐ SIAP PRINT!
-            </div>
+            </motion.div>
           </div>
 
         </div>
