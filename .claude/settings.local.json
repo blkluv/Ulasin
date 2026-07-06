@@ -1,9 +1,13 @@
 {
   "permissions": {
     "allow": [
+<<<<<<< HEAD
       "Bash(git remote *)",
       "Bash(git add *)",
       "Bash(git rebase *)"
+=======
+      "Bash(git remote *)"
+>>>>>>> f53e077 (feat: finalize UX layout, copywriting, Place ID validations and print warning)
     ]
   }
 }

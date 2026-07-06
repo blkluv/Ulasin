@@ -163,18 +163,13 @@ export function InputStep({ onNext, data }: StepProps) {
                 </motion.div>
               )}
             </AnimatePresence>
->>>>>>> 0544963 (Backup awal)
           </div>
 
           {/* ACTION BUTTON */}
           <div className="pt-4">
             <button
               type="submit"
-<<<<<<< HEAD
-              disabled={!placeId.trim() || !businessName.trim()}
-=======
               disabled={isSubmitDisabled}
->>>>>>> 0544963 (Backup awal)
               className="w-full bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] disabled:bg-gray-300 disabled:border-gray-400 disabled:text-gray-500 disabled:cursor-not-allowed text-white font-display font-bold text-xl py-4 border-2 border-[#0F0F0F] shadow-hard hover:shadow-hard-hover transition-all flex items-center justify-center gap-2 uppercase cursor-pointer"
             >
               <span>GENERATE DESAIN SIAP CETAK</span>
@@ -183,11 +178,7 @@ export function InputStep({ onNext, data }: StepProps) {
           </div>
         </form>
 
-<<<<<<< HEAD
         {/* TUTORIAL DROPDOWN (BAGAIMANA CARA MENCARI PLACE ID) */}
-=======
-        {/* TUTORIAL DROPDOWN */}
->>>>>>> 0544963 (Backup awal)
         <AnimatePresence>
           {showTutorial && (
             <motion.div

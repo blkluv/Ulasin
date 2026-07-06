@@ -227,6 +227,19 @@ export function QRCodeStep({ data, onPrev }: StepProps) {
               <RefreshCcw className="w-4 h-4" /> Ganti Data / Link Toko
             </button>
           </div>
+
+          {/* QA WARNING / REMINDER */}
+          <div className="bg-yellow-100 border-2 border-yellow-400 p-4 border-l-4 border-l-yellow-500 shadow-sm text-left">
+            <div className="flex items-start gap-3">
+              <span className="text-xl">⚠️</span>
+              <div>
+                <h4 className="font-bold text-yellow-900 text-sm mb-1 uppercase tracking-wide font-display">Wajib Tes Sebelum Cetak!</h4>
+                <p className="text-yellow-800 text-xs md:text-sm font-medium leading-relaxed">
+                  Pindai (scan) QR Code di layar ini menggunakan kamera HP Anda <strong>sebelum mencetaknya secara massal</strong>. Pastikan pop-up ulasan Google Maps toko Anda langsung terbuka. Jika salah tempat atau gagal, silakan <button onClick={onPrev} className="underline font-bold text-yellow-900 hover:text-black">kembali</button> dan periksa ulang <strong>Place ID</strong> Anda dengan teliti.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* PANEL KANAN: PREVIEW GAMBAR */}
