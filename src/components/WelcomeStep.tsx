@@ -112,7 +112,7 @@ export function WelcomeStep({ onNext }: StepProps) {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="absolute top-8 sm:top-2 left-[10%] sm:left-[20%] lg:-left-6 bg-yellow-300 text-[var(--color-ink)] font-mono font-extrabold text-xs sm:text-sm md:text-base px-2 sm:px-3 py-1.5 border-2 border-[var(--color-ink)] -rotate-12 z-30 shadow-[2px_2px_0px_0px_var(--color-ink)] pointer-events-none"
+              className="absolute top-8 sm:top-2 left-1/2 -translate-x-[60%] lg:left-0 lg:-translate-x-6 bg-yellow-300 text-[var(--color-ink)] font-mono font-extrabold text-xs sm:text-sm md:text-base px-2 sm:px-3 py-1.5 border-2 border-[var(--color-ink)] -rotate-12 z-30 shadow-[2px_2px_0px_0px_var(--color-ink)] pointer-events-none"
             >
               ⭐ SIAP PRINT!
             </motion.div>
