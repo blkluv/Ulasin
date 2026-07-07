@@ -23,7 +23,7 @@ export default function App() {
 
   const handleLogoClick = () => {
     if (step > 0) {
-      const confirmReset = window.confirm("Apakah Anda ingin kembali ke halaman awal? Data yang Anda tambahkan saat ini akan hilang dan tidak tersimpan.");
+      const confirmReset = window.confirm("Do you want to go back to the home page? Any data you've added will be lost and not saved.");
       if (confirmReset) {
         setData({}); // Reset data
         setStep(0);
@@ -46,7 +46,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[var(--color-paper)] flex flex-col font-sans selection:bg-[var(--color-accent)] selection:text-white">
-      {/* HEADER UTILITARIAN */}
+      {/* UTILITY HEADER */}
       <header className="w-full bg-[var(--color-paper)] border-b-2 border-[#0F0F0F] px-4 py-4 sticky top-0 z-50">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
 
@@ -56,7 +56,7 @@ export default function App() {
               <button
                 onClick={handlePrev}
                 className="p-2 bg-white border-2 border-[#0F0F0F] shadow-hard hover:shadow-hard-hover font-bold flex items-center justify-center transition-all cursor-pointer"
-                aria-label="Kembali ke langkah sebelumnya"
+                aria-label="Back to previous step"
               >
                 <ArrowLeft className="w-5 h-5 text-[#0F0F0F]" />
               </button>
@@ -70,10 +70,10 @@ export default function App() {
               {/* Brand Name */}
               <div className="flex flex-col ml-3 pl-3 border-l-2 border-[#0F0F0F]">
                 <h1 className="font-display font-extrabold text-sm md:text-base leading-none uppercase tracking-wide text-[#0F0F0F]">
-                  QR Ulasan Maps
+                  QR Maps Review
                 </h1>
                 <p className="font-mono text-[10px] text-gray-500 font-bold uppercase mt-0.5">
-                  Generator Cetak Gratis
+                  Free Print Generator
                 </p>
               </div>
             </div>
@@ -84,13 +84,13 @@ export default function App() {
             <div className="hidden md:flex items-center gap-2 bg-white px-3 py-1.5 border-2 border-[#0F0F0F] shadow-[2px_2px_0px_0px_#0F0F0F]">
               <Printer className="w-3.5 h-3.5 text-[var(--color-accent)] animate-pulse" />
               <span className="font-mono font-bold text-[10px] uppercase text-gray-700 tracking-wider">
-                Siap Cetak
+                Ready to Print
               </span>
             </div>
 
             {step > 0 && step <= 2 && (
               <div className="flex items-center gap-2 font-mono text-xs md:text-sm font-bold bg-white border-2 border-[#0F0F0F] px-3 py-1.5 shadow-hard">
-                <span className="text-[var(--color-accent)]">LANGKAH {step}</span>
+                <span className="text-[var(--color-accent)]">STEP {step}</span>
                 <span className="text-gray-400">/</span>
                 <span className="text-[#0F0F0F]">2</span>
               </div>
@@ -116,20 +116,20 @@ export default function App() {
         </AnimatePresence>
       </main>
 
-      {/* FOOTER PUSAT */}
+      {/* FOOTER */}
       <footer className="w-full bg-white border-t-2 border-[#0F0F0F] py-6 px-4 mt-auto">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between text-xs font-mono font-medium text-[#0F0F0F] gap-4 text-center md:text-left">
           <div className="flex flex-col gap-1">
-            <span className="font-bold text-sm">QR ULASAN MAPS &copy; {new Date().getFullYear()}</span>
-            <span className="text-gray-500">Alat bantu gratis untuk UMKM meningkatkan reputasi digital.</span>
+            <span className="font-bold text-sm">QR MAPS REVIEW &copy; {new Date().getFullYear()}</span>
+            <span className="text-gray-500">Free tool for SMEs to boost their digital reputation.</span>
           </div>
 
           <div className="flex items-center gap-2 font-bold justify-center">
             <span className="bg-[var(--color-accent)] text-white px-2 py-1 uppercase tracking-widest text-[10px] border border-[#0F0F0F]">
-              #NaikKelas
+              #LevelUp
             </span>
             <span className="bg-[#0F0F0F] text-white px-2 py-1 uppercase tracking-widest text-[10px] border border-[#0F0F0F]">
-              Tanpa Biaya Server
+              No Server Fees
             </span>
           </div>
         </div>
